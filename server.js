@@ -16,6 +16,9 @@ app.use(express.json());
 app.post("/verify-otp", (req, res) => {
     const { otp } = req.body;
 
+    if (!otp) {
+        return res.status(400).json();
+    }
 
     if (otp === "123456") {
         return res.status(200).json();
