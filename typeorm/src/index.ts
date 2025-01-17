@@ -17,6 +17,22 @@ AppDataSource.initialize()
     app.use(express.json());
     app.use(bodyParser.json());
 
+    app.post("/verify-otp", (req: Request, res: Response): Response => {
+      const { otp } = req.body;
+      console.log('====================================');
+      console.log('error');
+      console.log('====================================');
+      if (!otp) {
+        return res.status(400).json();
+      }
+    
+      if (otp === "123456") {
+        return res.status(200).json();
+      } else {
+        return res.status(403).json();
+      }
+    });
+
     // Create
   app.post('/users', async (req: Request, res: Response) => {
       console.log('Recieved pst Req');
@@ -43,6 +59,7 @@ AppDataSource.initialize()
         });
       }
     })
+
 
       //Read
 

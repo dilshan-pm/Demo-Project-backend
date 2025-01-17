@@ -8,7 +8,7 @@ import User from "./typeorm/src/entity/User";
 console.log("Error");
 
 const app = express();
-const PORT = 3000;
+const PORT = 5000;
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -16,7 +16,9 @@ app.use(express.json());
 
 app.post("/verify-otp", (req: Request, res: Response): Response => {
   const { otp } = req.body;
-
+  console.log('====================================');
+  console.log('error');
+  console.log('====================================');
   if (!otp) {
     return res.status(400).json();
   }
